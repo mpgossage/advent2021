@@ -4,8 +4,20 @@ Advent of Code 2021: helpers
 
 
 def load_ints(fname):
+    """
+    reads and returns a list of integers from a file,
+    one integer per line"""
     with open(fname) as f:
         return [int(l) for l in f.readlines()]
+
+
+def load_ints_csv_line(fname):
+    """
+    reads and returns a list of integers from a file,
+    single CSV line"""
+    with open(fname) as f:
+        l = f.readline()
+        return [int(n) for n in l.split(",")]
 
 
 def load_strings(fname):
@@ -23,6 +35,14 @@ def test_load_ints():
     assert arr[0] == 199
     assert arr[1] == 200
     assert arr[9] == 263
+
+
+def test_load_ints_csv_line():
+    arr = load_ints_csv_line("test06.txt")
+    assert len(arr) == 5
+    assert arr[0] == 3
+    assert arr[1] == 4
+    assert arr[4] == 2
 
 
 def test_make_int_grid():
