@@ -25,6 +25,14 @@ def load_strings(fname):
         return [l.strip("\n") for l in f.readlines()]
 
 
+def load_digit_grid(fname):
+    "loads a file & returns an 2d int grid where each digit is converted to an int"
+    result = []
+    for l in load_strings(fname):
+        result.append([int(c) for c in l])
+    return result
+
+
 def make_int_grid(x, y, val):
     return [[val] * x for i in range(y)]
 
@@ -55,3 +63,13 @@ def test_make_int_grid():
     assert len(g2) == 10
     assert len(g2[9]) == 20
     assert g2[9][19] == 0
+
+
+def test_load_digit_grid():
+    grid = load_digit_grid("test09.txt")
+    assert len(grid) == 5
+    for g in grid:
+        assert len(g) == 10
+    assert grid[0][0] == 2
+    assert grid[0][1] == 1
+    assert grid[0][9] == 0
