@@ -33,7 +33,13 @@ def load_digit_grid(fname):
     return result
 
 
+# should not have called it an int grid, it can be any kind of grid
+# the flexibility of python
 def make_int_grid(x, y, val):
+    return [[val] * x for i in range(y)]
+
+
+def make_grid(x, y, val):
     return [[val] * x for i in range(y)]
 
 
