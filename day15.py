@@ -14,7 +14,7 @@ ADJACENT = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 
 def navigate_grid(grid):
     my, mx = len(grid), len(grid[0])
-    # using a simple A*
+    # using a simple best first search
     # grid with lowest costs & paths in a priority queue
     max_cost = 9 * (my + mx)
     costs = make_grid(mx, my, max_cost)
